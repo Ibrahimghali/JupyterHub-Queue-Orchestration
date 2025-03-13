@@ -72,16 +72,13 @@ Install the latest version of Containerd as the container runtime:
 
 ### Fetch the latest version dynamically
 
-```bash
-CONTAINERD_VERSION=$(curl -s https://api.github.com/repos/containerd/containerd/releases/latest | grep 'tag_name' | cut -d '"' -f 4)
-echo "Latest Containerd version: $CONTAINERD_VERSION"
-```
+
 
 ### Download and install Containerd
 
 ```bash
-curl -LO https://github.com/containerd/containerd/releases/download/${CONTAINERD_VERSION}/containerd-${CONTAINERD_VERSION}-linux-amd64.tar.gz
-sudo tar Cxzvf /usr/local containerd-${CONTAINERD_VERSION}-linux-amd64.tar.gz
+curl -LO https://github.com/containerd/containerd/releases/download/v1.7.14/containerd-1.7.14-linux-amd64.tar.gz
+sudo tar Cxzvf /usr/local containerd-1.7.14-linux-amd64.tar.gz
 ```
 
 ### Configure and enable Containerd
@@ -92,9 +89,11 @@ sudo mkdir -p /usr/local/lib/systemd/system/
 sudo mv containerd.service /usr/local/lib/systemd/system/
 sudo mkdir -p /etc/containerd
 containerd config default | sudo tee /etc/containerd/config.toml
-sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/config.toml
+sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
 sudo systemctl daemon-reload
 sudo systemctl enable --now containerd
+
+systemctl status containerd
 ```
 
 ---
