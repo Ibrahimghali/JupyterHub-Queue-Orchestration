@@ -17,7 +17,7 @@ echo "@ip_address worker3" | sudo tee -a /etc/hosts
 
 ## 2. Disable Swap  
 ```bash
-swapoff -a
+sudo swapoff -a
 sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 ```  
 
