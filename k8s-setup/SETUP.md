@@ -7,6 +7,9 @@
 ```bash
 sudo hostnamectl set-hostname master
 sudo reboot
+```
+
+```bash
 echo "@ip_address master" | sudo tee -a /etc/hosts
 echo "@ip_address worker2" | sudo tee -a /etc/hosts
 echo "@ip_address worker3" | sudo tee -a /etc/hosts
