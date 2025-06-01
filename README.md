@@ -16,7 +16,7 @@ L’environnement permet à plusieurs utilisateurs d’exécuter des notebooks e
 
 ### 🔁 Figure 1 : Architecture Globale
 
-![Deployment Architecture](./assets/system_archtecture.png.png)
+![Deployment Architecture](/assets/system_archtecture.png)
 
 * **HAProxy** assure la répartition de charge vers les 3 nœuds maîtres Kubernetes.
 * **JupyterHub** est déployé sur les nœuds **workers**.
@@ -24,7 +24,7 @@ L’environnement permet à plusieurs utilisateurs d’exécuter des notebooks e
 
 ### 👤 Figure 2 : JupyterHub sur Kubernetes
 
-![JupyterHub Kubernetes](./assets/jupyterhub_on_k8s.png.png)
+![JupyterHub Kubernetes](/assets/jupyterhub_on_k8s.png)
 
 * Chaque utilisateur (ex. Alice, Bob) dispose d’un environnement JupyterLab dédié.
 * Le tout est orchestré dynamiquement par Kubernetes, via JupyterHub.
