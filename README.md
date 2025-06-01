@@ -1,87 +1,86 @@
 
 ---
 
-# 🚀 JupyterHub sur Kubernetes avec File d’Attente et Optimisation des Ressources (CPU/GPU)
+# 🚀 JupyterHub on Kubernetes with Task Queue and Resource Optimization (CPU/GPU)
 
-> 📚 Projet de fin d’études – Diplôme National d’Ingénieur en Informatique, Option Ingénierie des Données – Faculté des Sciences de Sfax
+> 📚 Final Year Project – National Engineering Degree in Computer Science, Data Engineering Option – Faculty of Sciences of Sfax
 
-## 🎯 Objectif du Projet
+## 🎯 Project Objective
 
-Ce projet vise à déployer **JupyterHub** sur un cluster **Kubernetes hautement disponible**, en intégrant une **file d’attente Apache YuniKorn** pour la gestion des ressources CPU/GPU et en assurant la **persistance des données utilisateurs** via un stockage NFS.
-L’environnement permet à plusieurs utilisateurs d’exécuter des notebooks en parallèle tout en maintenant la performance et l’équité d’accès aux ressources.
+This project aims to deploy **JupyterHub** on a **high-availability Kubernetes cluster**, integrating an **Apache YuniKorn-based task queue** for efficient CPU/GPU resource management and ensuring **user data persistence** through NFS storage.
+The platform enables multiple users to run Jupyter notebooks in parallel while maintaining performance and fair resource distribution.
 
 ---
 
-## 🧱 Architecture Déployée
+## 🧱 Deployment Architecture
 
-### 🔁 Figure 1 : Architecture Globale
+### 🔁 Figure 1: Global System Architecture
 
 ![Deployment Architecture](/assets/system_archtecture.png)
 
-* **HAProxy** assure la répartition de charge vers les 3 nœuds maîtres Kubernetes.
-* **JupyterHub** est déployé sur les nœuds **workers**.
-* **NFS** fournit un stockage persistant accessible à tous les pods.
+* **HAProxy** acts as a load balancer for the three Kubernetes master nodes.
+* **JupyterHub** is deployed on the **worker nodes**.
+* **NFS** provides persistent storage accessible across all pods.
 
-### 👤 Figure 2 : JupyterHub sur Kubernetes
+### 👤 Figure 2: JupyterHub on Kubernetes
 
 ![JupyterHub Kubernetes](/assets/jupyterhub_on_k8s.png)
 
-* Chaque utilisateur (ex. Alice, Bob) dispose d’un environnement JupyterLab dédié.
-* Le tout est orchestré dynamiquement par Kubernetes, via JupyterHub.
+* Each user (e.g., Alice, Bob) is provisioned a dedicated JupyterLab environment.
+* Kubernetes dynamically manages these environments through JupyterHub.
 
 ---
 
-## 🔧 Technologies Utilisées
+## 🔧 Technologies Used
 
-| Technologie         | Rôle                                                               |
-| ------------------- | ------------------------------------------------------------------ |
-| **Kubernetes**      | Orchestration de conteneurs (multi-node, HA, tolérance aux pannes) |
-| **JupyterHub**      | Serveur multi-utilisateurs pour environnements JupyterLab          |
-| **Helm**            | Gestionnaire de packages Kubernetes (chart de déploiement)         |
-| **Apache YuniKorn** | Planification fine des ressources (CPU/GPU) avec file d’attente    |
-| **NFS**             | Stockage partagé pour la persistance des notebooks et données      |
-| **HAProxy**         | Load balancer entre les nœuds maîtres                              |
-
----
-
-## ⚙️ Fonctionnalités Clés
-
-* 🎓 Accès multi-utilisateurs à des environnements Jupyter isolés
-* 📊 Gestion dynamique et équitable des ressources (YuniKorn)
-* 💾 Sauvegarde des notebooks grâce à NFS
-* 🔁 Tolérance aux pannes avec 3 nœuds maîtres + HAProxy
-* 🧠 Compatible avec des workloads intensifs (IA/ML, calcul scientifique)
+| Technology          | Purpose                                                          |
+| ------------------- | ---------------------------------------------------------------- |
+| **Kubernetes**      | Container orchestration (multi-node, HA, fault-tolerant)         |
+| **JupyterHub**      | Multi-user server for managing isolated JupyterLab environments  |
+| **Helm**            | Kubernetes package manager (for deployment automation)           |
+| **Apache YuniKorn** | Fine-grained resource scheduling (CPU/GPU) with queue management |
+| **NFS**             | Shared persistent storage for notebooks and user data            |
+| **HAProxy**         | Load balancer for Kubernetes control plane (masters)             |
 
 ---
 
-## 📈 Améliorations Futures
+## ⚙️ Key Features
 
-* 📉 **Monitoring avec Prometheus & Grafana** :
-
-  * Visualisation temps réel de l’utilisation CPU/GPU, mémoire
-  * Tableaux de bord personnalisés pour l’administration
+* 🎓 Multi-user access to isolated Jupyter environments
+* 📊 Dynamic and fair resource scheduling with YuniKorn
+* 💾 Persistent notebook storage using NFS
+* 🔁 High availability with 3 master nodes + HAProxy
+* 🧠 Supports intensive workloads (AI/ML, scientific computing)
 
 ---
 
-## 📚 Références
+## 📈 Future Improvements
+
+* 📉 **Monitoring with Prometheus & Grafana**:
+
+  * Real-time visualization of CPU/GPU/memory usage
+  * Custom dashboards for cluster administration
+
+---
+
+## 📚 References
 
 * [Kubernetes Documentation](https://kubernetes.io/docs/)
 * [Zero to JupyterHub](https://zero-to-jupyterhub.readthedocs.io/)
 * [JupyterHub Docs](https://jupyterhub.readthedocs.io/)
 * [Apache YuniKorn](https://yunikorn.apache.org/docs/)
-* [Prometheus Docs](https://prometheus.io/docs/introduction/overview/)
+* [Prometheus Documentation](https://prometheus.io/docs/introduction/overview/)
 * [Grafana Documentation](https://grafana.com/docs/)
 
 ---
 
-## 🙌 Auteurs
+## 🙌 Authors
 
 * **[Ibrahim GHALI](mailto:ibrahim.elghai@outlook.com)**
 * **[Hamza ZARAI](mailto:hamzazarai11@gmail.com)**
 
-
-**Encadrante :** Mme Imen KETATA
-**Université :** Faculté des Sciences de Sfax
-**Date de soutenance :** 30/05/2025
+**Supervisor:** Mrs. Imen KETATA
+**University:** Faculty of Sciences of Sfax
+**Defense Date:** May 30, 2025
 
 ---
