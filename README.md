@@ -63,6 +63,14 @@ The platform enables multiple users to run Jupyter notebooks in parallel while m
 
 ---
 
+## 🎓 Academic Presentation
+
+![Project Presentation Cover](/assets/presentation_cover.png)
+
+*Project defense presentation at the Faculty of Sciences of Sfax, May 30, 2025*
+
+---
+
 ## 📚 References
 
 * [Kubernetes Documentation](https://kubernetes.io/docs/)
